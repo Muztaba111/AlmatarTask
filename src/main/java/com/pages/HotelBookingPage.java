@@ -1,5 +1,6 @@
 package com.pages;
 
+import java.awt.RenderingHints.Key;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
@@ -46,6 +47,11 @@ public class HotelBookingPage {
 			"//*[@id=\"ltr\"]/app-root/app-shared-layout/div/div[3]/div/div[1]/div[3]/app-add-details/div/div/app-booking-form/form/div[1]/app-fields/div/div[4]/div/div[2]/app-almatar-datepicker/div/div[3]/ng-select/div");
 	private By selectDOBYear = By.xpath("//span[text()=\"2004\"]");
 	private By continueButton = By.xpath("//*[text()=\"Continue\"]");
+	private By card_holder = By.xpath("//input[@id='card-holder']");
+	private By card_number = By.xpath("//iframe[@id='cardNumber']");
+	private By expiry_date = By.xpath("//iframe[@id='expiryDate']");
+	private By cvv_code = By.xpath("//iframe[@id='cvv']");
+	
 
 	public HotelBookingPage(WebDriver driver) {
 
@@ -159,6 +165,34 @@ public class HotelBookingPage {
 	public void clickOnContinue() {
 
 		driver.findElement(continueButton).click();
+		
 
 	}
+	public void enterCardHolder(String holderName) {
+		
+		waitHelper.waitForElement(card_holder);
+		driver.findElement(card_holder).sendKeys(holderName);
+
+		
+
+	}
+	public void enterCardNumber(String cardNumber) {
+		waitHelper.waitForElement(card_number);
+		
+		
+		driver.findElement(card_number).sendKeys(cardNumber);
+
+	}
+    public void enterExpiryDate(String expiryDate) {
+		
+		
+		driver.findElement(expiry_date).sendKeys(expiryDate);
+
+	}
+    public void enterCvvCode(String cvvCode) {
+	
+	
+	driver.findElement(cvv_code).sendKeys(cvvCode);
+
+}
 }

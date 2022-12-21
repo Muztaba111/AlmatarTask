@@ -1,6 +1,6 @@
 Feature: Hotel booking page feature
 
-Scenario: Open Almatar URL, book the hotel without payment flow
+Scenario: Booking flow from Homepage to the Payment-page without completing the payment procedure
 Given user is on Almatar home page
 Then user clicks on App lanuage as English link
 Then user clicks on Hotels tab
@@ -19,3 +19,9 @@ Then user select dates of DOB
 Then user select month of DOB
 And user select year of DOB
 Then user click on continue button
+When user on Payment page
+Then user enter card holderName "Muztaba"
+Then user enter cardNumber "4263982640269299"
+And user enter expiryDate "02/23"
+And user enter cvvCode "837"
+Then user close the browser
